@@ -1,14 +1,12 @@
 package com.gallery.smart.SmartGallery.Model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "CLIENT")
-@Getter
-@Setter
+@Data
 public class Client {
 
    @Id
@@ -25,9 +23,11 @@ public class Client {
 
    private String mailClient;
 
-   private String loginClient;
-
    private String passClient;
 
    private String codePostalClient;
+
+   private String dateNaissanceClient;
+
+   private String typeClient;
 }

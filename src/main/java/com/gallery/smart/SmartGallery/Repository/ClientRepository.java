@@ -12,7 +12,6 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Override
     Optional<Client> findById(Long aLong);
-
     @Query("select c from CLIENT c where upper(c.nomClient) like upper(?1)")
     List<Client> findByNomClientLikeIgnoreCase(String nomClient);
 
