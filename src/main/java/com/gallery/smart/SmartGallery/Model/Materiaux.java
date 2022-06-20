@@ -2,6 +2,7 @@ package com.gallery.smart.SmartGallery.Model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 

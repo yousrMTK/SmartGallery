@@ -28,7 +28,7 @@ public class Oeuvre {
 
    private String descriptionOeuvre;
 
-   private Date dateRealisation;
+   private String dateRealisation;
 
    private int tautTva;
 

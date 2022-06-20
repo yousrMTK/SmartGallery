@@ -21,6 +21,7 @@ public class Client {
 
    private String telClient;
 
+   @Column(unique=true)
    private String mailClient;
 
    private String passClient;

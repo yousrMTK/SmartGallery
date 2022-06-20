@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
+    long countByMailClientIs(@NonNull String mailClient);
 
-    @Override
-    Optional<Client> findById(Long aLong);
-    @Query("select c from CLIENT c where upper(c.nomClient) like upper(?1)")
-    List<Client> findByNomClientLikeIgnoreCase(String nomClient);
+    Client findByMailClientLikeAndPassClientLike(@NonNull String mailClient, @NonNull String passClient);
+
+
 
 }

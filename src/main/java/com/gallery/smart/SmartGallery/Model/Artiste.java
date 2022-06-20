@@ -23,7 +23,7 @@ public class Artiste {
 
    private String imgArtiste;
 
-   private Date dateNaissance;
+   private String dateNaissance;
 
    private String biographieArtiste;
 
