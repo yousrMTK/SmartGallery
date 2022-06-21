@@ -1,13 +1,10 @@
 package com.gallery.smart.SmartGallery.Model;
 
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.Data;
 import javax.persistence.*;
 
 @Entity(name = "TRANSACTION")
-@Getter
-@Setter
+@Data
 public class Transaction {
     @EmbeddedId
     CommandeOeuvreKey id;

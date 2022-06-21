@@ -1,6 +1,5 @@
 package com.gallery.smart.SmartGallery.Controller;
 
-import com.gallery.smart.SmartGallery.Model.Style;
 import com.gallery.smart.SmartGallery.Model.Type;
 import com.gallery.smart.SmartGallery.Service.UtilService;
 import com.google.gson.Gson;

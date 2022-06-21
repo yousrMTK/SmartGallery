@@ -1,30 +1,39 @@
 package com.gallery.smart.SmartGallery.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.List;
+
 
 @Entity(name = "ARTISTE")
-@Getter
 @Setter
+@Getter
+
 public class Artiste {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long idArtiste;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idArtiste;
 
-   private String nomArtiste;
+    private String nomArtiste;
 
-   private String prenomArtiste;
+    private String prenomArtiste;
 
-   private String mailArtiste;
+    private String mailArtiste;
 
-   private String imgArtiste;
+    private String imgArtiste;
 
-   private String dateNaissance;
+    private String dateNaissance;
 
-   private String biographieArtiste;
+    private String biographieArtiste;
+
+    @JsonManagedReference(value="oeuvre-artiste")
+    @OneToMany(mappedBy = "artiste", fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
+    private List<Oeuvre> oeuvres;
 
 }

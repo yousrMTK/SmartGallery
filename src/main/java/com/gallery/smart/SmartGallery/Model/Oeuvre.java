@@ -1,16 +1,17 @@
 package com.gallery.smart.SmartGallery.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
-import java.util.*;
 
 
-@Getter
 @Setter
+@Getter
+
 @Entity(name = "OEUVRE")
 public class Oeuvre {
 
@@ -34,10 +35,13 @@ public class Oeuvre {
 
    private int tautRemise;
 
-   @ManyToOne
-   @OnDelete(action = OnDeleteAction.CASCADE)
-   private Artiste artiste;
+   @JsonBackReference(value="oeuvre-artiste")
+   @ManyToOne(fetch = FetchType.EAGER, optional = false)
+   @JoinColumn(name = "artiste_id", nullable = false)
+   Artiste artiste;
 
+   @JsonBackReference(value="type-oeuvre")
    @ManyToOne
+   @JoinColumn(name = "type_id", nullable = false)
    private Type type;
 }

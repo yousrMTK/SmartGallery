@@ -1,13 +1,11 @@
 package com.gallery.smart.SmartGallery.Model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import javax.persistence.*;
 import java.util.*;
 
 @Entity(name = "LIVRAISON")
-@Getter
-@Setter
+@Data
 public class Livraison {
 
    @Id

@@ -6,9 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
 @Setter
-
+@Getter
 @Entity(name = "STYLE")
 public class Style {
 
@@ -18,8 +17,8 @@ public class Style {
 
    private String libelleStyle;
 
-   @JsonBackReference
-   @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   @JsonBackReference(value="type-style")
+   @ManyToOne(fetch = FetchType.EAGER, optional = false)
    @JoinColumn(name = "type_id", nullable = false)
    Type type;
 
