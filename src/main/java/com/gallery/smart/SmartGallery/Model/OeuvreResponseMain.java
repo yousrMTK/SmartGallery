@@ -3,16 +3,13 @@ package com.gallery.smart.SmartGallery.Model;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
-
 @Data
 @Component
-public class OeuvreResponse {
+public class OeuvreResponseMain {
 
     private Oeuvre oeuvre;
 
-    private Long artiste_id;
+    private Artiste artiste;
 
-    private Long type_id;
-
-    private DBFile file;
+    private Type type;
 }

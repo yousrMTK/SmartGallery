@@ -3,15 +3,12 @@ package com.gallery.smart.SmartGallery.Model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 
 @Setter
 @Getter
-
 @Entity(name = "OEUVRE")
 public class Oeuvre {
 
@@ -44,4 +41,9 @@ public class Oeuvre {
    @ManyToOne
    @JoinColumn(name = "type_id", nullable = false)
    private Type type;
+
+   @JsonBackReference(value="file-oeuvre")
+   @OneToOne(cascade = CascadeType.MERGE)
+   @JoinColumn(name = "dbfile_id", referencedColumnName = "id")
+   private DBFile file;
 }
