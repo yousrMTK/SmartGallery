@@ -29,8 +29,7 @@ public class ClientController {
     @CrossOrigin
     @PostMapping(consumes = {"application/json"}, path = "/update")
     public Client updateUser(@Validated @RequestBody Client client) {
-        System.out.println("client = " + client.getTypeClient().equals("artiste"));
-        return saveOrupdate(client);
+        return saveOrupdateData(client);
     }
 
     @CrossOrigin
@@ -44,10 +43,20 @@ public class ClientController {
     }
 
     private Client saveOrupdate(Client client) {
-        System.out.println(" Method called" );
         if(client.getTypeClient().equals("artiste")) {
-            System.out.println(" ARTISTE" );
             Artiste artiste = new Artiste();
+            artiste.setMailArtiste(client.getMailClient());
+            artiste.setDateNaissance(client.getDateNaissanceClient());
+            artiste.setNomArtiste(client.getNomClient());
+            artiste.setPrenomArtiste(client.getPrenomClient());
+            artisteRepository.save(artiste);
+        }
+        return clientrepository.save(client);
+    }
+
+    private Client saveOrupdateData(Client client) {
+        if(client.getTypeClient().equals("artiste")) {
+            Artiste artiste = artisteRepository.findByMailArtiste(client.getMailClient());
             artiste.setMailArtiste(client.getMailClient());
             artiste.setDateNaissance(client.getDateNaissanceClient());
             artiste.setNomArtiste(client.getNomClient());
