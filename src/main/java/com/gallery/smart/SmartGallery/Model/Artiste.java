@@ -23,6 +23,7 @@ public class Artiste {
 
     private String prenomArtiste;
 
+    @Column(unique = true)
     private String mailArtiste;
 
     private String imgArtiste;
